@@ -1,0 +1,19 @@
+{
+    "name": "quasiris/quasiris-sender-plugin",
+    "description": "Plugin to catching product events in spryker and sending itcustom api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kacper Dygas",
+            "email": "kacper.dygas@quasiris.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "quasiris\\QuasirisSenderPlugin\\": "src/"
+        }
+    }
+}
