@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace quasiris\QuasirisSenderPlugin\Communication\Plugins\Event\Subscriber;
+namespace SenderPlugin\Zed\Module\Communication\Plugins\Event\Subscriber;
 
 use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 use Spryker\Zed\Event\Dependency\Plugin\EventSubscriberInterface;
@@ -16,8 +16,8 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\ProductStorage\Communication\Plugin\Event\Subscriber\ProductStorageEventSubscriber as SprykerProductStorageEventSubscriber;
 
 use ProductBundle\Dependency\ProductBundleEvents;
-use quasiris\QuasirisSenderPlugin\Communication\Plugins\Event\Listener\QuasirisSenderPluginListener;
-use quasiris\QuasirisSenderPlugin\Communication\Plugins\Event\Listener\QuasirisSenderPluginPublishListener;
+use SenderPlugin\Zed\Module\Communication\Plugins\Event\Listener\QuasirisSenderPluginListener;
+use SenderPlugin\Zed\Module\Communication\Plugins\Event\Listener\QuasirisSenderPluginPublishListener;
 
 /**
  * Sample implementation for subscriber

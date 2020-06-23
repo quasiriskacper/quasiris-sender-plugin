@@ -5,10 +5,10 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace quasiris\QuasirisSenderPlugin;
+namespace SenderPlugin\Zed\Module;
 
 use Spryker\Zed\Kernel\AbstractBundleConfig;
-use quasiris\QuasirisSenderPlugin\Shared\QuasirisSenderPluginConstants;
+use SenderPlugin\Zed\Module\Shared\QuasirisSenderPluginConstants;
 
 class QuasirisSenderPluginConfig extends AbstractBundleConfig
 {

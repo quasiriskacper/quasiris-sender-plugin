@@ -1,9 +1,9 @@
 <?php
 
-namespace  quasiris\QuasirisSenderPlugin\Communication\Controllers;
+namespace  SenderPlugin\Zed\Module\Communication\Controllers;
 
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
-use quasiris\QuasirisSenderPlugin\Communication\Controllers\MixedController;
+use SenderPlugin\Zed\Module\Communication\Controllers\MixedController;
 
 
 class SenderController extends AbstractController { 

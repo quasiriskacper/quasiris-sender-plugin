@@ -1,6 +1,6 @@
 <?php
 
-namespace  quasiris\QuasirisSenderPlugin\Communication\Controllers;
+namespace  SenderPlugin\Zed\Module\Communication\Controllers;
 
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;

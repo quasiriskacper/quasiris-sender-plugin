@@ -5,10 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace quasiris\QuasirisSenderPlugin\Communication\Plugins\Event\Listener;
+namespace SenderPlugin\Zed\Module\Communication\Plugins\Event\Listener;
 
 use Orm\Zed\ProductBundle\Persistence\Map\SpyProductBundleTableMap;
-use Orm\Zed\Category\Persistence\Map\SpyCategoryAttributeTableMap;
 use Spryker\Zed\Event\Dependency\Plugin\EventHandlerInterface;
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
@@ -16,9 +15,9 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Spryker\Shared\Kernel\Transfer\TransferInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use quasiris\QuasirisSenderPlugin\QuasirisSenderPluginDependencyProvider;
-use quasiris\QuasirisSenderPlugin\Communication\Controllers\SenderController;
-use quasiris\QuasirisSenderPlugin\Communication\QuasirisSenderPluginCommunicationFactory;
+use SenderPlugin\Zed\Module\QuasirisSenderPluginDependencyProvider;
+use SenderPlugin\Zed\Module\Communication\Controllers\SenderController;
+use SenderPlugin\Zed\Module\Communication\QuasirisSenderPluginCommunicationFactory;
 use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 use Spryker\Zed\Product\Business\ProductFacade;
 
@@ -26,7 +25,9 @@ use Spryker\Zed\Product\Business\ProductFacade;
  * @method \Spryker\Zed\ProductRelation\Business\ProductRelationFacade getFacade()
  * @method \Spryker\Zed\ProductRelation\Communication\ProductRelationCommunicationFactory getFactory()
  */
-class QuasirisSenderPluginProductCategoryListener extends AbstractPlugin implements EventBulkHandlerInterface
+class QuasirisSenderPluginPublishListener extends AbstractPlugin implements EventBulkHandlerInterface
+
+
 {
     use DatabaseTransactionHandlerTrait;
     private $sender;
@@ -40,21 +41,27 @@ class QuasirisSenderPluginProductCategoryListener extends AbstractPlugin impleme
      *
      * @return void
      */
-    public function handleBulk(array $eventTransfers, $eventName)
-    {
+    public function handleBulk(array $eventTransfers, $eventName): void
+    {   
         $productInfo = [];
+    
+        $productAbstractIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
+        if (empty($productAbstractIds)) {
+            return;
+        }
 
-        $categoryIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
-        $categoryNodeIds = $this->getQueryContainer()->queryCategoryNodeIdsByCategoryIds($categoryIds)->find()->getData();
-        $categoryNodeIds = $this->getQueryContainer()->queryCategoryNodeByIds($categoryNodeIds)->find()->getData();
-
+        foreach($productAbstractIds as $p) {
+            $productInfo[] =  $this->getQueryContainer()->findProductAbstractById($p)->toArray();
+        }
+            
         $data = array(
             'date' => date('d.m.y G:i:s'),
-            'listenerName' => 'QuasirisSenderPluginProductCategoryListener',
+            'listenerName' => 'QuasirisSenderPluginPublishListener',
             'eventName' =>  $eventName,
-            'eventTransfers' => $categoryNodeIds,
+            'eventTransfers' => $productInfo,
         );
         $this->sender->getDataFromApi($data, $this->getConfig()->getMySetting());
+        
     }
-
+    
 }

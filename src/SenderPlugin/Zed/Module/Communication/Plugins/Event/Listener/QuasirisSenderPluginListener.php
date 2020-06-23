@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace quasiris\QuasirisSenderPlugin\Communication\Plugins\Event\Listener;
+namespace SenderPlugin\Zed\Module\Communication\Plugins\Event\Listener;
 
 use Orm\Zed\ProductBundle\Persistence\Map\SpyProductBundleTableMap;
 use Spryker\Zed\Event\Dependency\Plugin\EventHandlerInterface;
@@ -15,10 +15,8 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Spryker\Shared\Kernel\Transfer\TransferInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use quasiris\QuasirisSenderPlugin\QuasirisSenderPluginDependencyProvider;
-use quasiris\QuasirisSenderPlugin\Communication\Controllers\SenderController;
-use quasiris\QuasirisSenderPlugin\Communication\Controllers\MixedController;
-use quasiris\QuasirisSenderPlugin\Business\QuasirisSenderPluginFacede;
+use SenderPlugin\Zed\Module\Communication\Controllers\SenderController;
+use SenderPlugin\Zed\Module\Communication\Controllers\MixedController;
 
 use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
@@ -27,7 +25,7 @@ use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
  * @method \Spryker\Zed\ProductRelation\Business\ProductRelationFacade getFacade()
  * @method \Spryker\Zed\ProductRelation\Communication\ProductRelationCommunicationFactory getFactory()
  */
-class QuasirisSenderPlugin extends AbstractPlugin implements EventBulkHandlerInterface {
+class QuasirisSenderPluginListener extends AbstractPlugin implements EventBulkHandlerInterface {
     use DatabaseTransactionHandlerTrait;
     private $sender;
     private $mixed;
