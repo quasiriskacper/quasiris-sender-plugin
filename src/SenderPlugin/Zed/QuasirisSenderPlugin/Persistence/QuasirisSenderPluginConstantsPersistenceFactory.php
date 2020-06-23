@@ -5,12 +5,12 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SenderPlugin\Zed\Module\Persistence;
+namespace Quasiris\Zed\QuasirisSenderPlugin\Persistence;
 
 use Orm\Zed\ProductStorage\Persistence\SpyProductAbstractStorageQuery;
 use Orm\Zed\ProductStorage\Persistence\SpyProductConcreteStorageQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
-use SenderPlugin\Zed\Module\QuasirisSenderPluginDependencyProvider;
+use Quasiris\Zed\QuasirisSenderPlugin\QuasirisSenderPluginDependencyProvider;
 
 
 /**

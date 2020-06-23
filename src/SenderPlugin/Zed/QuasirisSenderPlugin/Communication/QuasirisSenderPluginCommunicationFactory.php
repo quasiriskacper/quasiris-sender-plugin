@@ -1,9 +1,9 @@
 <?php
 
-namespace quasiris\QuasirisSenderPlugin\Communication;
+namespace Quasiris\Zed\QuasirisSenderPlugin\Communication;
 
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
-use quasiris\QuasirisSenderPlugin\QuasirisSenderPluginDependencyProvider;
+use Quasiris\Zed\QuasirisSenderPlugin\QuasirisSenderPluginDependencyProvider;
 
 
 class QuasirisSenderPluginCommunicationFactory extends AbstractCommunicationFactory

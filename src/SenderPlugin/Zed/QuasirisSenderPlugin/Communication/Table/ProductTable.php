@@ -1,6 +1,6 @@
 <?php
 
-namespace quasiris\QuasirisSenderPlugin\Communication\Table;
+namespace Quasiris\Zed\QuasirisSenderPlugin\Communication\Table;
 
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
 use Orm\Zed\Product\Persistence\SpyProductQuery;

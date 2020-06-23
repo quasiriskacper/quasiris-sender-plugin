@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Quasiris\QuasirisSenderPlugin\Zed\Module;
+namespace Quasiris\Zed\QuasirisSenderPlugin;
 
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;

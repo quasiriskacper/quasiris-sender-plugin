@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SenderPlugin\Zed\Module\Communication\Plugins\Event\Listener;
+namespace Quasiris\Zed\QuasirisSenderPlugin\Communication\Plugins\Event\Listener;
 
 use Orm\Zed\ProductBundle\Persistence\Map\SpyProductBundleTableMap;
 use Spryker\Zed\Event\Dependency\Plugin\EventHandlerInterface;
@@ -15,8 +15,8 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Spryker\Shared\Kernel\Transfer\TransferInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use SenderPlugin\Zed\Module\Communication\Controllers\SenderController;
-use SenderPlugin\Zed\Module\Communication\Controllers\MixedController;
+use Quasiris\Zed\QuasirisSenderPlugin\Communication\Controllers\SenderController;
+use Quasiris\Zed\QuasirisSenderPlugin\Communication\Controllers\MixedController;
 
 use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
