@@ -13,16 +13,10 @@ Data comes to api
 ```json
 API_URL_MAIN:
 {
-    "abstract": {
-        //info about abstract of product
-    },
-    "concrete": {
-        //info about concrete of product
-    },
+    "abstract": {}, //info about abstract of product
+    "concrete": {}, //info about concrete of product
     "categories": {
-        "categories": [
-            //info about categories of product
-        ]
+        "categories": [] //info about categories of product
     }
 }
 API_URL_TESTING:
