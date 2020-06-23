@@ -20,6 +20,7 @@ class SenderController extends AbstractController {
         $data_to_send = [];
         $response_from_main_api = null;
         $url_main_api = null;
+        $product = null;
         
         //sending to main url
         if(isset($urls['API_URL_MAIN'])) {
@@ -28,24 +29,24 @@ class SenderController extends AbstractController {
                 $type_query = "DELETE";
             }
 
-            $product['product']['abstract'] = $params['abstract'];
-            $product['product']['concrete'] = $params['concrete'];
-            $product['product']['categories'] = $params['categories'];
+            $product['abstract'] = $params['abstract'];
+            $product['concrete'] = $params['concrete'];
+            $product['categories'] = $params['categories'];
 
             // send to quasiris api 
             $url = $urls['API_URL_MAIN'].'/'.$type.'/'.$id;
             try {
                 $client = new \GuzzleHttp\Client();
                 $response = $client->request($type_query, $url, [
-                    // 'body' => json_encode($params),
-                    'form_params' => $product['product'],
+                    // 'body' => json_encode($product),
+                    'form_params' => $product,
                     'headers' => [
                         'Content-Type' => 'application/json',
                         'accept'     => '*/*'
                     ]
                 ]);
-                $stream = $response->getBody();
-                $response_from_main_api = $stream;
+                $stream = $response->getBody()->getContents();
+                $response_from_main_api = json_decode($stream);
                 $url_main_api = $url;
             } catch(ServerException $e) {
                 $this->sendToMyApi($urls['API_URL_TESTING'], [
@@ -62,6 +63,7 @@ class SenderController extends AbstractController {
             $data_to_send['status'] = 'SUCCESS';
             $data_to_send['params'] = $params;
             $data_to_send['eventName'] = $params['eventName'];
+            $data_to_send['request_form_params_main_api'] = $product;
             $data_to_send['response_from_main_api'] = $response_from_main_api;
             $data_to_send['url_main_api'] = $url_main_api;
             $data_to_send['url_testing_api'] = $urls['API_URL_TESTING'];

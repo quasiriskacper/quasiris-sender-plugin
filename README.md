@@ -13,17 +13,17 @@ Data comes to api
 ```json
 API_URL_MAIN:
 {
-   "product": {
-      "abstract": {
-         //info about abstract of product"
-      },
-      "concrete": {
-         //info about concrete of product"}
-      },
-      "categories": {
-         "categories": [//info about categories of product"]
-      }
-   }
+    "abstract": {
+        //info about abstract of product
+    },
+    "concrete": {
+        //info about concrete of product
+    },
+    "categories": {
+        "categories": [
+            //info about categories of product
+        ]
+    }
 }
 API_URL_TESTING:
 {
@@ -39,14 +39,15 @@ API_URL_TESTING:
         "categories": {
             "categories": []
         },
-        "productId": //id of product,
+        "productId": "//id of product",
         "type": "products"
     },
     "eventName": "Product.product_abstract.after.update",
+    "request_form_params_main_api": "params with goes to api",
     "response_from_main_api": {},
-    "url_main_api": API_URL_MAIN,
-    "url_testing_api": API_URL_TESTING,
-    "product_id": //id of product
+    "url_main_api": "API_URL_MAIN",
+    "url_testing_api": "API_URL_TESTING",
+    "product_id": "//id of product"
 }
 
 ```
@@ -128,9 +129,16 @@ Import constant from plugin and add constant:
 // config/Shared/config_default.php
 use Quasiris\Zed\QuasirisSenderPlugin\Shared\QuasirisSenderPluginConstants;
 
+//create this
 $config[QuasirisSenderPluginConstants::MY_SETTING] = [
     'API_URL_MAIN' => 'main url where data goes',
     'API_URL_TESTING' => 'testing url where data goes with additional informations'
+];
+
+
+$config[KernelConstants::PROJECT_NAMESPACES] = [
+    'Pyz',
+    'Quasiris', //add this in KernelConstants::PROJECT_NAMESPACES
 ];
 ```
 
@@ -150,6 +158,8 @@ use Quasiris\Zed\QuasirisSenderPlugin\Shared\QuasirisSenderPluginConstants;
 $config[QuasirisSenderPluginConstants::MY_SETTING] = [
     'API_URL_TESTING' => 'testing url where data goes with additional informations'
 ];
+
+
 ```
 
 ## License
